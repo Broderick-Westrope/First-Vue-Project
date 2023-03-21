@@ -132,3 +132,12 @@ form input {
     padding-left: 15px;
     text-align: center;
 }
+
+.loading {
+    max-width: 500px;
+    border: 1px solid var(--yellow);
+    padding: 5px 0;
+    text-align: center;
+    margin: 30px auto;
+    border-radius: 20px;
+}
