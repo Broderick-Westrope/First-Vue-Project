@@ -1,8 +1,22 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins");
 
+:root {
+    --header-bg-colour: #13151E;
+    --body-bg-color: #1D2533;
+    --task-bg-color: #181C28;
+    --green: #BAE67E;
+    --blue: #5CCFE6;
+    --yellow: #FFD580;
+    --purple: #C3A6FF;
+    --red: #EF6B73;
+    --grey: #8695B7;
+    --things-blue: #4987F0;
+    --highlight-color: #2C374C;
+}
+
 body {
-    background: #02111D;
-    color: #92AFFB;
+    background: var(--body-bg-color);
+    color: var(--blue);
     margin: 0;
 }
 
@@ -12,7 +26,7 @@ body * {
 
 header {
     text-align: center;
-    background: #010E16;
+    background: var(--header-bg-colour);
     padding-top: 20px;
     display: flex;
     justify-content: center;
@@ -29,7 +43,7 @@ header h1 {
     padding-top: 10px;
     padding-bottom: 10px;
     margin-left: 15px;
-    color: #457CEE;
+    color: var(--things-blue);
 }
 
 .task-list {
@@ -39,10 +53,11 @@ header h1 {
 
 .task {
     padding: 6px 20px;
-    background: #0B1E33;
+    background: var(--body-bg-color);
     margin-top: 20px;
     border-radius: 20px;
-    box-shadow: 2px 4px 6px rgb(0, 0, 0, 0.5);
+    border: 0.1px solid var(--highlight-color);
+    box-shadow: 2px 5px 6px var(--header-bg-colour);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -61,11 +76,11 @@ header h1 {
     font-size: 1.4em;
     margin-left: 6px;
     cursor: pointer;
-    color: #7792AD;
+    color: var(--grey);
 }
 
 .task i.active {
-    color: #FC4A51;
+    color: var(--red);
 }
 
 .filter {
@@ -76,20 +91,20 @@ header h1 {
 
 .filter button {
     display: inline-block;
-    margin-left: 10px auto;
-    background-color: #0B1E33;
-    border: 2px solid #010E16;
-    border-radius: 4px;
+    margin-left: 5px;
+    background-color: var(--purple);
+    border-radius: 20px;
     padding: 4px 8px;
     cursor: pointer;
-    font-size: 0.8em;
     font-size: 1em;
-    color: #CCD6E6;
+    color: var(--header-bg-colour);
+    border-style: none;
 }
 
 .new-task-form {
     padding: 20px 0;
-    background: #010E16;
+    background: var(--header-bg-colour);
+    border-bottom: 1px solid --highlight-color;
 }
 
 form {
@@ -98,7 +113,6 @@ form {
     display: grid;
     grid-template-columns: 3fr 1fr;
     gap: 10px;
-    border-bottom: 2 #CCD6E6;
 }
 
 form * {
@@ -109,7 +123,7 @@ form * {
 }
 
 form button {
-    background: #457CEE;
+    background: var(--green);
     font-family: 'Poppins';
     cursor: pointer;
 }
