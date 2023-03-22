@@ -2,17 +2,17 @@ import { defineStore } from "pinia";
 
 export const useTaskStore = defineStore('taskStore', {
     state: () => ({
-        tasks: [{ id: 1, title: "", isFav: false }],
+        tasks: [] as { id: number, title: string, isFav: boolean }[],
         isLoading: false
     }),
     getters: { 
         //? is it acceptable to declare this as the type? is there some way to have a more specific type that follows the contents of tasks?
-        favs(): { id: number; title: string; isFav: boolean; }[]
+        favs(state): { id: number; title: string; isFav: boolean; }[]
         {
-            return this.tasks.filter(t => t.isFav)
+            return state.tasks.filter(task => task.isFav)
         },
-        favCount(): number {
-            return this.tasks.reduce((favCount, task) => (task.isFav ? ++favCount : favCount)
+        favCount(state): number {
+            return state.tasks.reduce((favCount, task) => (task.isFav ? ++favCount : favCount)
             , 0)
         },
         totalCount: (state) => {return state.tasks.length}
