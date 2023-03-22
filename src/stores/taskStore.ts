@@ -1,13 +1,19 @@
 import { defineStore } from "pinia";
 
+interface Task {
+    id: number,
+    title: string,
+    isFav: boolean
+}
+
 export const useTaskStore = defineStore('taskStore', {
     state: () => ({
-        tasks: [] as { id: number, title: string, isFav: boolean }[],
+        tasks: [] as Task[],
         isLoading: false
     }),
     getters: { 
         //? is it acceptable to declare this as the type? is there some way to have a more specific type that follows the contents of tasks?
-        favs(state): { id: number; title: string; isFav: boolean; }[]
+        favs(state): Task[]
         {
             return state.tasks.filter(task => task.isFav)
         },
